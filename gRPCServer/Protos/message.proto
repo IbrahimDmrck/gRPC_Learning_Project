@@ -5,7 +5,10 @@ option csharp_namespace = "gRPCMessageServer";
 package message;
 
 service Message{
+	//unary type
 	rpc SendMessage (MessageRequest) returns (MessageResponse);
+	//stream type
+	rpc SendStreamMessage (MessageRequest) returns ( stream MessageResponse);
 }
 
 message MessageRequest{

@@ -7,8 +7,12 @@ package message;
 service Message{
 	//unary type
 	rpc SendMessage (MessageRequest) returns (MessageResponse);
-	//stream type
-	rpc SendStreamMessage (MessageRequest) returns ( stream MessageResponse);
+	//server stream type
+	rpc SendServerStreamMessage (MessageRequest) returns ( stream MessageResponse);
+	//client stream type
+	rpc SendClientStreamMessage (stream MessageRequest) returns ( MessageResponse);
+	//bi-directional stream type
+	rpc SendBiDirectionalStreamMessage (stream MessageRequest) returns (stream MessageResponse);
 }
 
 message MessageRequest{
